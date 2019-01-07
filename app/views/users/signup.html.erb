@@ -1,0 +1,47 @@
+<br>
+<div class="ui centered grid">
+  <header>
+    <h1>Schooly</h1>
+  </header>
+  <br>
+  <div class="four wide column">
+    <h2>Students</h2>
+    <%= form_tag("/students/signup", method:"post", :class => "ui huge form") do %>
+      <div class="field">
+        <%= text_field(:student, :first_name, placeholder: "First Name") %>
+      </div>
+      <div class="field">
+        <%= text_field(:student, :last_name, placeholder: "Last Name") %>
+      </div>
+      <div class="field">
+        <%= email_field(:student, :email, placeholder: "Email") %>
+      </div>
+      <div class="field">
+        <%= password_field(:student, :password, placeholder: "Password") %>
+      </div>
+      <%= submit_tag('Sign up', :class => "ui button") %>
+      <p>Already a user? <a href="/users/login">Log in!</a></p>
+    <% end %>
+  </div>
+  <div class="ui vertical divider"></div>
+  <div class="four wide column">
+    <h2>Instructors</h2>
+    <%= form_tag("/students/signup", method:"post", :class => "ui huge form") do %>
+      <div class="field">
+        <%= text_field(:instructor, :first_name, placeholder: "First Name") %>
+      </div>
+      <div class="field">
+        <%= text_field(:instructor, :last_name, placeholder: "Last Name") %>
+      </div>
+      <div class="field">
+        <%= email_field(:instructor, :email, placeholder: "Email") %>
+      </div>
+      <div class="field">
+        <%= password_field(:instructor, :password, placeholder: "Password") %>
+      </div>
+      <%= submit_tag('Sign up', :class => "ui button") %>
+      <p>Already a user? <a href="/users/login">Log in!</a></p>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,35 @@
+<br>
+<div class="ui centered grid">
+  <header>
+    <h1>Schooly</h1>
+  </header>
+  <br>
+  <div class="four wide column">
+    <h2>Students</h2>
+    <%= form_tag("/students/login", method:"post", :class => "ui huge form") do %>
+      <div class="field">
+        <%= email_field(:student, :email, placeholder: "Email") %>
+      </div>
+      <div class="field">
+        <%= password_field(:student, :email, placeholder: "Password") %>
+      </div>
+      <%= submit_tag('Login', :class => "ui button") %>
+      <p>Not a user? <a href="/users/signup">Sign up!</a></p>
+    <% end %>
+  </div>
+  <div class="ui vertical divider"></div>
+  <div class="four wide column">
+    <h2>Instructors</h2>
+    <%= form_tag("/instructors/login", method:"post", :class => "ui huge form") do %>
+      <div class="field">
+        <%= email_field(:instructor, :email, placeholder: "Email") %>
+      </div>
+      <div class="field">
+        <%= password_field(:instructor, :email, placeholder: "Password") %>
+      </div>
+      <%= submit_tag('Login', :class => "ui button") %>
+        <p>Not a user? <a href="/users/signup">Sign up!</a></p>
+    <% end %>
+  </div>
+
+</div>
