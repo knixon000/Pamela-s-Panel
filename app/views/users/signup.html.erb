@@ -1,6 +1,6 @@
 <br>
 <div class="ui centered grid">
-  <header>
+  <header class="login_signup">
     <h1>Schooly</h1>
   </header>
   <br>
@@ -19,6 +19,14 @@
       <div class="field">
         <%= password_field(:student, :password, placeholder: "Password") %>
       </div>
+      <div class="field">
+        <%= date_field(:student, :birthday) %>
+      </div>
+      <div class="field">
+        <label>Please select your highest level of education completed:</label>
+        <%= select_tag( :education,  options_for_select([['High School Diploma', 'High School Diploma'], ["Some College", 'High School Diploma']])) %>
+      </div>
+
       <%= submit_tag('Sign up', :class => "ui button") %>
       <p>Already a user? <a href="/users/login">Log in!</a></p>
     <% end %>
@@ -26,7 +34,7 @@
   <div class="ui vertical divider"></div>
   <div class="four wide column">
     <h2>Instructors</h2>
-    <%= form_tag("/students/signup", method:"post", :class => "ui huge form") do %>
+    <%= form_tag("/instructors/signup", method:"post", :class => "ui huge form") do %>
       <div class="field">
         <%= text_field(:instructor, :first_name, placeholder: "First Name") %>
       </div>
@@ -38,6 +46,9 @@
       </div>
       <div class="field">
         <%= password_field(:instructor, :password, placeholder: "Password") %>
+      </div>
+      <div class="field">
+        <%= date_field(:instructor, :birthday) %>
       </div>
       <%= submit_tag('Sign up', :class => "ui button") %>
       <p>Already a user? <a href="/users/login">Log in!</a></p>

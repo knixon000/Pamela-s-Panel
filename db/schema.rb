@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_07_192321) do
+ActiveRecord::Schema.define(version: 2019_01_08_153502) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "cohort_name"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_192321) do
     t.integer "salary"
     t.string "education"
     t.string "email"
-    t.string "password"
   end
 
   create_table "students", force: :cascade do |t|
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_01_07_192321) do
     t.string "birthday"
     t.string "education"
     t.string "email"
-    t.string "password"
   end
 
 end
