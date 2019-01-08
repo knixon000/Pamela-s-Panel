@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_153502) do
+ActiveRecord::Schema.define(version: 2019_01_08_173920) do
 
   create_table "cohorts", force: :cascade do |t|
     t.string "cohort_name"
     t.string "start_date"
     t.string "end_date"
+    t.integer "instructor_id"
+    t.integer "course_id"
+    t.index ["course_id"], name: "index_cohorts_on_course_id"
+    t.index ["instructor_id"], name: "index_cohorts_on_instructor_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -39,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_01_08_153502) do
     t.string "birthday"
     t.string "education"
     t.string "email"
+    t.integer "cohort_id"
+    t.index ["cohort_id"], name: "index_students_on_cohort_id"
   end
 
 end

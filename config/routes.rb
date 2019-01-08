@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get '/users/login'
-  get '/users/signup'
+  get '/users/students'
+  get '/users/instructors'
 
 
 

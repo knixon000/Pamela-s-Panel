@@ -1,4 +1,4 @@
-class Courses < ActiveRecord::Migration[5.2]
+class CreateCourses < ActiveRecord::Migration[5.2]
   def up
     create_table :courses do |t|
       t.string :course_name
@@ -10,5 +10,4 @@ class Courses < ActiveRecord::Migration[5.2]
   def down
     drop_table :courses
   end
-
 end

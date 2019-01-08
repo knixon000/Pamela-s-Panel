@@ -1,18 +1,16 @@
-class Instructors < ActiveRecord::Migration[5.2]
+class CreateStudents < ActiveRecord::Migration[5.2]
   def up
-    create_table :instructors do |t|
+    create_table :students do |t|
       t.string :first_name
       t.string :last_name
       t.string :birthday
-      t.integer :salary
       t.string :education
       t.string :email
-      t.string :password
+      t.belongs_to :cohort, index: true
     end
   end
 
   def down
-    drop_table :instructors
+    drop_table :students
   end
-
 end
