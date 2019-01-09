@@ -19,9 +19,18 @@
    padding: 0;
  }
 
-div h1{
-  height: 100px;
-  background-color: black;
+#header #inner-header {
+   background-color: black;
+   height: 100px;
+   display: flex;
+   flex-direction: row;
+ }
+
+#img {
+  height: 75px;
+}
+
+#inner-header h1 {
   color: white;
   font-size: 50px;
 }
