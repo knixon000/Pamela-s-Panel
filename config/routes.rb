@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'cohorts/index' => 'cohorts#index'
-  get 'courses/index' => 'cohorts#index'
+  get 'pages/cohorts' => 'cohorts#index'
+  get 'pages/courses' => 'courses#index'
   get '/pages/students' => 'students#index'
   get '/pages/instructors' => 'instructors#index'
 
