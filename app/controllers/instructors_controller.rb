@@ -18,4 +18,12 @@ class InstructorsController < ApplicationController
   def index
     @all_instructors = Instructor.all
   end
+
+  def destroy
+    if current_user
+      @instructor = Instructor.find(params[:id])
+      @instructor.destroy
+    end
+    redirect_to '/pages/instructors'
+  end
 end

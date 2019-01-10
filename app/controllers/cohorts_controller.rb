@@ -15,4 +15,12 @@ class CohortsController < ApplicationController
   def index
     @all_cohorts = Cohort.all
   end
+
+  def destroy
+    if current_user
+      @cohort = Cohort.find(params[:id])
+      @cohort.destroy
+    end
+    redirect_to '/pages/cohorts'
+  end
 end

@@ -17,4 +17,13 @@ class StudentsController < ApplicationController
   def index
     @all_students = Student.all
   end
+
+  def destroy
+    if current_user
+      @student = Student.find(params[:id])
+      @student.destroy
+    end
+    redirect_to '/pages/students'
+  end
+
 end

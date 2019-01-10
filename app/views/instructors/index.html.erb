@@ -1,48 +1,58 @@
 <div class="ui centered grid">
-  <div class="four wide column">
-    <h2>Instructors</h2>
-    <%= form_tag("/instructors/create", method:"post", :class => "ui huge form") do %>
-      <div class="field">
-        <%= text_field(:instructor, :first_name, placeholder: "First Name") %>
-      </div>
-      <div class="field">
-        <%= text_field(:instructor, :last_name, placeholder: "Last Name") %>
-      </div>
-      <div class="field">
-        <%= email_field(:instructor, :email, placeholder: "Email") %>
-      </div>
-      <div class="field">
-        <%= date_field(:instructor, :birthday) %>
-      </div>
-      <div class="field">
-        <%= number_field(:instructor, :salary, in: 1.0..100000.0, step: 1.0, placeholder: "Salary") %>
-      </div>
-      <div class="field">
-        <label>Highest level of education completed:</label>
-        <%= select_tag(:education,  options_for_select([['High School Diploma', 'High School Diploma'], ["Some College", 'Some College'], ['Masters Degree', 'Masters Degree'], ['PhD, Doctorate', 'PhD, Doctorate']])) %>
-      </div>
-      <%= submit_tag('Add instructor', :class => "ui button") %>
-    <% end %>
+  <div class="row">
+    <div class="four wide column">
+      <h2>Add Instructors</h2>
+      <%= form_tag("/instructors/create", method:"post", :class => "ui huge form") do %>
+        <div class="field">
+          <%= text_field(:instructor, :first_name, placeholder: "First Name") %>
+        </div>
+        <div class="field">
+          <%= text_field(:instructor, :last_name, placeholder: "Last Name") %>
+        </div>
+        <div class="field">
+          <%= email_field(:instructor, :email, placeholder: "Email") %>
+        </div>
+        <div class="field">
+          <%= date_field(:instructor, :birthday) %>
+        </div>
+        <div class="field">
+          <%= number_field(:instructor, :salary, in: 1.0..100000.0, step: 1.0, placeholder: "Salary") %>
+        </div>
+        <div class="field">
+          <label>Highest level of education completed:</label>
+          <%= select_tag(:education,  options_for_select([['High School Diploma', 'High School Diploma'], ["Some College", 'Some College'], ['Masters Degree', 'Masters Degree'], ['PhD, Doctorate', 'PhD, Doctorate']])) %>
+        </div>
+        <%= submit_tag('Add instructor', :class => "ui button") %>
+      <% end %>
+    </div>
   </div>
 
+  <div class="row">
+    <div class="eight wide column">
+      <table class="ui striped table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP THROUGH INSTRUCTORS -->
+            <% @all_instructors.each do |instructors| %>
+              <tr>
+                <td><a href=""><%= instructors.first_name + " " + instructors.last_name %></a></td>
+                <td><%= instructors.birthday %></td>
+                <td><%= instructors.email %></td>
+                <td>
+                  <%= submit_tag('Edit Instructor', :class => "ui blue button") %>
+                  <%= link_to 'Remove Instructor', instructor_path(instructors), method: :delete, :class => "ui red button" %>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<table class="ui striped table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date of Birth</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- LOOP THROUGH INSTRUCTORS -->
-      <% @all_instructors.each do |instructors| %>
-        <tr>
-          <td><a href=""><%= instructors.first_name + " " + instructors.last_name %></a></td>
-          <td><%= instructors.birthday %></td>
-          <td><%= instructors.email %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>

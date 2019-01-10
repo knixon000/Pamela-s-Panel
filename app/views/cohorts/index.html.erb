@@ -1,38 +1,49 @@
 <div class="ui centered grid">
-  <div class="four wide column">
-    <h2>Cohorts</h2>
-    <%= form_tag("/cohorts/create", method:"post", :class => "ui huge form") do %>
-      <div class="field">
-        <%= text_field(:cohort, :cohort_name, placeholder: "Cohort Name") %>
-      </div>
-      <div class="field">
-        <%= date_field(:cohort, :start_date, placeholder: "Start Date") %>
-      </div>
-      <div class="field">
-        <%= date_field(:cohort, :end_date, placeholder: "End Date") %>
-      </div>
-      <%= submit_tag('Add cohort', :class => "ui button") %>
-    <% end %>
+  <div class="row">
+    <div class="four wide column">
+      <h2>Add Cohorts</h2>
+      <%= form_tag("/cohorts/create", method:"post", :class => "ui huge form") do %>
+        <div class="field">
+          <%= text_field(:cohort, :cohort_name, placeholder: "Cohort Name") %>
+        </div>
+        <div class="field">
+          <%= date_field(:cohort, :start_date, placeholder: "Start Date") %>
+        </div>
+        <div class="field">
+          <%= date_field(:cohort, :end_date, placeholder: "End Date") %>
+        </div>
+        <%= submit_tag('Add cohort', :class => "ui button") %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six wide column">
+      <table class="ui striped table">
+        <thead>
+          <tr>
+            <th>Cohort Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP THROUGH COHORTS -->
+            <% @all_cohorts.each do |cohorts| %>
+              <tr>
+                <td><a href=""><%= cohorts.cohort_name %></a></td>
+                <td><%= cohorts.start_date %></td>
+                <td><%= cohorts.end_date %></td>
+                <td>
+                  <%= submit_tag('Edit Cohort', :class => "ui blue button") %>
+                  <%= link_to 'Remove Cohort', cohort_path(cohorts), method: :delete, :class => "ui red button" %>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>
-
-<table class="ui striped table">
-  <thead>
-    <tr>
-      <th>Cohort Name</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- LOOP THROUGH COHORTS -->
-      <% @all_cohorts.each do |cohorts| %>
-        <tr>
-          <td><a href=""><%= cohorts.cohort_name %></a></td>
-          <td><%= cohorts.start_date %></td>
-          <td><%= cohorts.end_date %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>

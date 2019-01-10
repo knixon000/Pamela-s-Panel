@@ -14,4 +14,12 @@ class CoursesController < ApplicationController
   def index
     @all_courses = Course.all
   end
+
+  def destroy
+    if current_user
+      @course = Course.find(params[:id])
+      @course.destroy
+    end
+    redirect_to '/pages/courses'
+  end
 end

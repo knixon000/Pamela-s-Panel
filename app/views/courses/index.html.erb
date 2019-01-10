@@ -1,33 +1,44 @@
 <div class="ui centered grid">
-  <div class="four wide column">
-    <h2>Courses</h2>
-    <%= form_tag("/courses/create", method:"post", :class => "ui huge form") do %>
-      <div class="field">
-        <%= text_field(:course, :course_name, placeholder: "Course Name") %>
-      </div>
-      <div class="field">
-        <%= number_field(:course, :hours, in: 1.0..300.0, step: 1.0, placeholder: "Hours") %>
-      </div>
-      <%= submit_tag('Add course', :class => "ui button") %>
-    <% end %>
+  <div class="row">
+    <div class="four wide column">
+      <h2>Add Courses</h2>
+      <%= form_tag("/courses/create", method:"post", :class => "ui huge form") do %>
+        <div class="field">
+          <%= text_field(:course, :course_name, placeholder: "Course Name") %>
+        </div>
+        <div class="field">
+          <%= number_field(:course, :hours, in: 1.0..300.0, step: 1.0, placeholder: "Hours") %>
+        </div>
+        <%= submit_tag('Add course', :class => "ui button") %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="six wide column">
+      <table class="ui striped table">
+        <thead>
+          <tr>
+            <th>Course Name</th>
+            <th># of Hours</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- LOOP THROUGH COURSES -->
+            <% @all_courses.each do |courses| %>
+              <tr>
+                <td><a href=""><%= courses.course_name %></a></td>
+                <td><%= courses.hours %></td>
+                <td>
+                  <%= submit_tag('Edit Course', :class => "ui blue button") %>
+                  <%= link_to 'Remove Course', course_path(courses), method: :delete, :class => "ui red button" %>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>
-
-<table class="ui striped table">
-  <thead>
-    <tr>
-      <th>Course Name</th>
-      <th># of Hours</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- LOOP THROUGH COURSES -->
-      <% @all_courses.each do |courses| %>
-        <tr>
-          <td><a href=""><%= courses.course_name %></a></td>
-          <td><%= courses.hours %></td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>

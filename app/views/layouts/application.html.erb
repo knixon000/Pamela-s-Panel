@@ -14,14 +14,34 @@
         <%= image_tag("pen.svg", :id => "img") %>
         <h1>schooly</h1>
       </div>
+
     </div>
 
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %> 
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+    <div class="ui inverted menu">
+      <div class="left menu">
+        <a class="item" href="/pages/cohorts">Cohorts</a>
+        <a class="item" href="/pages/courses">Courses</a>
+        <a class="item" href="/pages/instructors">Instructors</a>
+        <a class="item" href="/pages/students">Students</a>
+      </div>
+      <div class="right menu">
+        <% if signed_in? %>
+          <a class="item">
+            Signed in as: <%= current_user.email %>
+          </a>
+          <a class="item">
+            <%= button_to 'Sign out', sign_out_path, method: :delete %>
+          </a>
+        <% else %>
+          <a class="item">
+            <%= link_to 'Sign in', sign_in_path, class: "ui button" %>
+          </a>
+        <% end %>
+        <a class="item">Help</a>
+      </div>
+    </div>
+
+
 
     <div id="flash">
       <% flash.each do |key, value| %>
