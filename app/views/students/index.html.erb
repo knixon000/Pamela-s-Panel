@@ -14,7 +14,7 @@
         <%= email_field(:student, :email, placeholder: "Email") %>
       </div>
       <div class="field">
-        <%= date_field(:student, :birthday) %>
+        <%= date_field(:student, :birthday, min: "1869-01-01") %>
       </div>
       <div class="field">
         <label>Highest level of education completed:</label>
@@ -44,7 +44,7 @@
                 <td><%= students.birthday %></td>
                 <td><%= students.email %></td>
                 <td>
-                  <%= submit_tag('Edit Student', :class => "ui blue button") %>
+                  <%= link_to 'Edit Student', students_path(students), method: :update, :class => "ui blue button" %>
                   <%= link_to 'Remove Student', student_path(students), method: :delete, :class => "ui red button" %>
                 </td>
               </tr>

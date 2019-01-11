@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'students#index'
 
-
   get '/pages/cohorts' => 'cohorts#index'
   get '/pages/courses' => 'courses#index'
   get '/pages/students' => 'students#index'
@@ -19,10 +18,17 @@ Rails.application.routes.draw do
   get '/cohorts/create'
   post '/cohorts/create' => 'cohorts#create'
 
+  get '/students/:id/edit' => 'students#edit'
+  patch '/students/:id' => 'students#update'
+
+  get '/courses/profile/:id' => 'courses#show'
+
+  # get '/students/:id/student_profile'
+
   resources :students
   resources :instructors
   resources :courses
-  resources :cohorts 
+  resources :cohorts
   # delete '/students/:id' => 'students#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

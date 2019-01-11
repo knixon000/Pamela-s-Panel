@@ -9,7 +9,7 @@ class InstructorsController < ApplicationController
       last_name: params[:instructor][:last_name],
       birthday: params[:instructor][:birthday],
       salary: params[:instructor][:salary],
-      education: params[:instructor][:education],
+      education: params[:education],
       email: params[:instructor][:email]
     )
     redirect_to '/pages/instructors'

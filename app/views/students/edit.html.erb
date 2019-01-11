@@ -1,0 +1,7 @@
+<%= form_for @student, url: {action: "update", method: "patch"} do |f| %>
+  <%= f.text_field :student, :first_name %>
+  <%= f.text_field :student, :last_name %>
+  <%= f.email_field :student, :email %>
+  <%= f.date_field :student, :birthday %>
+  <%= f.select_tag :education %>
+<% end %>

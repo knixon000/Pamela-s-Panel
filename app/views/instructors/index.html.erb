@@ -13,7 +13,7 @@
           <%= email_field(:instructor, :email, placeholder: "Email") %>
         </div>
         <div class="field">
-          <%= date_field(:instructor, :birthday) %>
+          <%= date_field(:instructor, :birthday, min: "1869-01-01") %>
         </div>
         <div class="field">
           <%= number_field(:instructor, :salary, in: 1.0..100000.0, step: 1.0, placeholder: "Salary") %>

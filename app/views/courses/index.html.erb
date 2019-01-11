@@ -28,7 +28,7 @@
           <!-- LOOP THROUGH COURSES -->
             <% @all_courses.each do |courses| %>
               <tr>
-                <td><a href=""><%= courses.course_name %></a></td>
+                <td><a href="/courses/profile/<%= courses.id %>"><%= courses.course_name %></a></td>
                 <td><%= courses.hours %></td>
                 <td>
                   <%= submit_tag('Edit Course', :class => "ui blue button") %>
