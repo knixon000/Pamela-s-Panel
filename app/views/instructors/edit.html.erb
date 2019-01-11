@@ -1,7 +1,7 @@
 <div class="ui centered grid">
   <div class="four wide column">
-    <h1>Update Student Information</h1>
-    <%= form_for @student, url: {action: "edit", method: "get"}, :html => {:class => "ui form"} do |f| %>
+    <h1>Update Instructor Information</h1>
+    <%= form_for @instructor, url: {action: "edit", method: "get"}, :html => {:class => "ui form"} do |f| %>
       <div class="field">
         <%= f.text_field :first_name %>
       </div>
@@ -15,10 +15,13 @@
         <%= f.date_field :birthday %>
       </div>
       <div class="field">
+        <%= f.number_field :salary, in: 1.0..100000.0, step: 1.0 %>
+      </div>
+      <div class="field">
         <%= f.select :education, options_for_select([['High School Diploma', 'High School Diploma'], ["Some College", 'Some College'], ['Masters Degree', 'Masters Degree'], ['PhD, Doctorate', 'PhD, Doctorate']]) %>
       </div>
       <br>
-      <%= f.submit 'Update Student', :class => "ui button" %>
+      <%= f.submit 'Update Instructor', :class => "ui button" %>
     <% end %>
 
   </div>

@@ -44,7 +44,7 @@
                 <td><%= students.birthday %></td>
                 <td><%= students.email %></td>
                 <td>
-                  <%= link_to 'Edit Student', students_path(students), method: :update, :class => "ui blue button" %>
+                  <%= link_to 'Edit Student', edit_student_path(students), :class => "ui blue button" %>
                   <%= link_to 'Remove Student', student_path(students), method: :delete, :class => "ui red button" %>
                 </td>
               </tr>

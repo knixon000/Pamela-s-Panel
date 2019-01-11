@@ -34,6 +34,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.update(student_params)
     @student.save
+    redirect_to '/pages/students'
   end
 
   # def student_profile

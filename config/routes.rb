@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   post '/cohorts/create' => 'cohorts#create'
 
   get '/students/:id/edit' => 'students#edit'
-  patch '/students/:id' => 'students#update'
+  patch '/students/:id/edit' => 'students#update'
+
+  get '/instructors/:id/edit' => 'instructors#edit'
+  patch '/instructors/:id/edit' => 'instructors#update'
 
   get '/courses/profile/:id' => 'courses#show'
 

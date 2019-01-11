@@ -46,7 +46,7 @@
                 <td><%= instructors.birthday %></td>
                 <td><%= instructors.email %></td>
                 <td>
-                  <%= submit_tag('Edit Instructor', :class => "ui blue button") %>
+                  <%= link_to 'Edit Instructor', edit_instructor_path(instructors), :class => "ui blue button" %>
                   <%= link_to 'Remove Instructor', instructor_path(instructors), method: :delete, :class => "ui red button" %>
                 </td>
               </tr>
